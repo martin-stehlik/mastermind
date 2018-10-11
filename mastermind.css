@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+section {
+  padding: 15px;
+}
+
+.circle {
+  padding: 0;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  border: 1px solid black;
+  border-radius: 50%;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.control {
+  width: 50%;
+  float: left;
+  text-align: right;
+  border-right: 1px solid black;
+}
+
+.results {
+  width: 50%;
+  float: left;
+}
+
+.square {
+  display: inline-block;
+  height: 100%;
+  width: 50px;
+
+}
+
+.circle-small {
+  width: 15px;
+  height: 15px;
+  border: 1px solid black;
+  border-radius: 50%;
+  float: left;
+  margin: 5px;
+}
+
+.row {
+  height: 70px;
+}
+
+button {
+  dispay: inline-block;
+}
