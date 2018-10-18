@@ -1,0 +1,22 @@
+{
+  "name": "mastermind",
+  "version": "1.0.0",
+  "description": "board-game clone",
+  "main": "mastermind.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martin-stehlik/mastermind.git"
+  },
+  "author": "Martin Stehlík",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martin-stehlik/mastermind/issues"
+  },
+  "homepage": "https://github.com/martin-stehlik/mastermind#readme",
+  "devDependencies": {
+    "colors.css": "^3.0.0"
+  }
+}
