@@ -9,6 +9,18 @@ for(let i=0; i<4; i++){
 let currentRow = 0;
 
 
+/* Input colors */ 
+const colorsForNumbers = ['#7FDBFF', '#3D9970', '#FFDC00', '#FF4136', '#B10DC9', '#0074D9', '#01FF70', '#FF851B', '#DDD'] 
+
+const inputCircles = document.querySelectorAll('input');
+
+for(let i=0; i<inputCircles.length; i++){
+  inputCircles[i].addEventListener('input', function(event){
+    this.style.backgroundColor = colorsForNumbers[event.target.value - 1];
+  });
+}
+
+
 // FUNCTIONS 
 
 // checkNumbers function - button 
@@ -55,10 +67,10 @@ function computePoints (submittedSolution){
 function showSigns(signs){
   let smallCircles = document.querySelector(".results").querySelectorAll(".row")[currentRow].querySelectorAll(".circle-small");
   for(let i=0; i<signs.accurate; i++){
-    smallCircles[i].style.backgroundColor = "green";
+    smallCircles[i].style.backgroundColor = "#2ECC40";
   }
   for(let i = 0 + signs.accurate; i < (signs.inaccurate + signs.accurate); i++){
-    smallCircles[i].style.backgroundColor = "grey";
+    smallCircles[i].style.backgroundColor = "#AAA";
   }
   if (signs.accurate === 4){
     alert("Congrats!");
