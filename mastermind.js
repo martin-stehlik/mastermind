@@ -17,6 +17,9 @@ const inputCircles = document.querySelectorAll('input');
 for(let i=0; i<inputCircles.length; i++){
   inputCircles[i].addEventListener('input', function(event){
     this.style.backgroundColor = colorsForNumbers[event.target.value - 1];
+    if (event.target.value == ''){
+      this.style.backgroundColor = '#FFF';
+    }
   });
 }
 
@@ -25,12 +28,13 @@ for(let i=0; i<inputCircles.length; i++){
 
 // checkNumbers function - button 
 function checkNumbers(button){
-  button.disabled = true;  // temporary solution for game limitation
+  button.disabled = true;// disable used button 
   let circles = button.parentNode.querySelectorAll("input");
   currentRow = Array.prototype.indexOf.call(button.parentNode.parentNode.children, button.parentNode);
   let submittedSolution = [];
   for (let i=0; i<solution.length; i++){
     submittedSolution.push(circles[i].value); 
+    circles[i].disabled = "true"; // disable used input circles 
   }
   computePoints(submittedSolution);
 };
