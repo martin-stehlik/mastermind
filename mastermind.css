@@ -10,6 +10,12 @@ section {
   padding: 15px;
 }
 
+header {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
 .circle {
   padding: 0;
   display: inline-block;
