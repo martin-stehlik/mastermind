@@ -1,18 +1,18 @@
-/* INITIAL SETUP */ 
+/* Colors for each number in input */ 
+const colorsForNumbers = ['#7FDBFF', '#3D9970', '#FFDC00', '#FF4136', '#B10DC9', '#0074D9', '#01FF70', '#FF851B', '#DDD'];
 
 /* solution number generation */
 let solution = [];
-for(let i=0; i<4; i++){
+let submittedSolution;
+for(let i=0; i<4; i++);
   solution.push(randomIntToNine());
 }
 
+/* current row index */ 
 let currentRow = 0;
 
-
-/* Input colors */ 
-const colorsForNumbers = ['#7FDBFF', '#3D9970', '#FFDC00', '#FF4136', '#B10DC9', '#0074D9', '#01FF70', '#FF851B', '#DDD'] 
-
-const inputCircles = document.querySelectorAll('input');
+/* on input - change background color according to number */ 
+const inputCircles = document.querySelectorAll('#js-control input');
 
 for(let i=0; i<inputCircles.length; i++){
   inputCircles[i].addEventListener('input', function(event){
@@ -26,22 +26,22 @@ for(let i=0; i<inputCircles.length; i++){
 
 // FUNCTIONS 
 
-// checkNumbers function - button 
-function checkNumbers(button){
+// Submit solution (on button click)
+function submitSolution(button){
   button.disabled = true;// disable used button 
-  let circles = button.parentNode.querySelectorAll("input");
-  currentRow = Array.prototype.indexOf.call(button.parentNode.parentNode.children, button.parentNode);
-  let submittedSolution = [];
+  let circles = button.parentNode.querySelectorAll("js-control input");
+  currentRow = Array.prototype.indexOf.call(button.parentNode.parentNode.children, button.parentNode); // find current row index based on button position
+  submittedSolution = [];
   for (let i=0; i<solution.length; i++){
     submittedSolution.push(circles[i].value); 
-    circles[i].disabled = "true"; // disable used input circles 
+    circles[i].disabled = "true"; // disable used input circles
   }
   computePoints(submittedSolution);
 };
 
-// compare given numbers with solution - colored points 
+// compare given numbers with solution 
 function computePoints (submittedSolution){
-  let points = [];  // possible values of elements: "accurate", "inaccurate", undefined;
+  let points = [];  // values of elements: "accurate", "inaccurate", undefined;
   for (let i=0; i<solution.length; i++) {
     if (submittedSolution[i] == solution[i]){
       points[i] = "accurate";
