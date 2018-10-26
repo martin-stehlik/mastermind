@@ -2,9 +2,9 @@
 const colorsForNumbers = ['#7FDBFF', '#3D9970', '#FFDC00', '#FF4136', '#B10DC9', '#0074D9', '#01FF70', '#FF851B', '#DDD'];
 
 /* solution number generation */
-let solution = [];
+const solution = [];
 let submittedSolution;
-for(let i=0; i<4; i++);
+for(let i=0; i<4; i++){
   solution.push(randomIntToNine());
 }
 
@@ -23,40 +23,42 @@ for(let i=0; i<inputCircles.length; i++){
   });
 }
 
-
 // FUNCTIONS 
 
 // Submit solution (on button click)
 function submitSolution(button){
-  button.disabled = true;// disable used button 
-  let circles = button.parentNode.querySelectorAll("js-control input");
+  button.disabled = true; // disable used button 
+  let circles = button.parentNode.querySelectorAll("#js-control input");
   currentRow = Array.prototype.indexOf.call(button.parentNode.parentNode.children, button.parentNode); // find current row index based on button position
   submittedSolution = [];
   for (let i=0; i<solution.length; i++){
     submittedSolution.push(circles[i].value); 
     circles[i].disabled = "true"; // disable used input circles
   }
-  computePoints(submittedSolution);
+  computePoints();
 };
 
 // compare given numbers with solution 
-function computePoints (submittedSolution){
-  let points = [];  // values of elements: "accurate", "inaccurate", undefined;
+function computePoints (){
+  let compResult = solution.slice();
   for (let i=0; i<solution.length; i++) {
-    if (submittedSolution[i] == solution[i]){
-      points[i] = "accurate";
+    if (compResult[i] == submittedSolution[i]) {  // == operator is necessary 
+      compResult[i] = "accurate";
+      submittedSolution[i] = "accurate";
     }
+  }
+  for (let i=0; i<solution.length; i++){
     for (let y=0; y<solution.length; y++){
-      if (submittedSolution[y] == solution[i] && points[i] == undefined){    // compare two different data types: strings from input and numbers from random int. function
-        points[i] = "inaccurate";
-        submittedSolution[y] = "used"; // make sure that one submitted number cannot be accepted twice 
-      } 
-    } 
-  }  
-  let = signs = {};
+      if(compResult[i] == submittedSolution[y] && compResult[i] !== "accurate"){
+        compResult[i] = "inaccurate";
+        submittedSolution[y] = "inaccurate";
+      }
+    }
+  }
+  let signs = {};
   signs.accurate = 0;
   signs.inaccurate = 0;
-  points.forEach(el => {
+  submittedSolution.forEach(el => {
     if (el == "accurate"){
       signs.accurate++;
     } else if (el == "inaccurate"){
@@ -64,7 +66,6 @@ function computePoints (submittedSolution){
     }
   });
   showSigns(signs);
-
 }
 
 // show colored signs according to the rate of success, plus alert in case of completion 
