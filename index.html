@@ -13,7 +13,7 @@
       <h1>MasterMind</h1>
     </header>
     <nav>
-      <button>New game</button>
+      <button onclick="initialSetup()">New game</button>
       <button onclick="toggleInst(this)">How to play</button>
       <div id="js-instructions" class="instructions-closed">
         <p>Break the code consisting of <strong>four digits excluding zero</strong> (1-9). In each row, you can guess the solution and then click on the Check button to compare your guess with the code. If your attempt contains correct number but in a wrong position, you will see a <strong>grey point</strong>. If you get both number and its position right, you will see a <strong>green point</strong>. Points <strong>do not indicate positions of numbers</strong>. Good luck!</p>
@@ -93,7 +93,7 @@
         </div>
       </section>
 
-      <section class="results">
+      <section class="results" id="js-results">
         <div class="row">
           <div class="square">
               <div class="circle-small"></div>

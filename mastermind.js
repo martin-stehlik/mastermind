@@ -2,28 +2,54 @@
 const colorsForNumbers = ['#7FDBFF', '#3D9970', '#FFDC00', '#FF4136', '#B10DC9', '#0074D9', '#01FF70', '#FF851B', '#DDD'];
 
 /* solution number generation */
-const solution = [];
+let solution;
 let submittedSolution;
-for(let i=0; i<4; i++){
-  solution.push(randomIntToNine());
-}
+let currentRow;
 
-/* current row index */ 
-let currentRow = 0;
+initialSetup();
 
-/* on input - change background color according to number */ 
-const inputCircles = document.querySelectorAll('#js-control input');
+function initialSetup(){
+  solution = [];
+  for(let i=0; i<4; i++){
+    solution.push(randomIntToNine());
+  }
 
-for(let i=0; i<inputCircles.length; i++){
-  inputCircles[i].addEventListener('input', function(event){
-    this.style.backgroundColor = colorsForNumbers[event.target.value - 1];
-    if (event.target.value == ''){
-      this.style.backgroundColor = '#FFF';
-    }
-  });
-}
+  currentRow = 0;
 
-// FUNCTIONS 
+  
+  const inputCircles = document.querySelectorAll('#js-control input');
+
+  /* initial number input */ 
+  for(let i=0; i<inputCircles.length; i++){
+    inputCircles[i].value = null;
+    inputCircles[i].style.backgroundColor = "#FFF";
+    inputCircles[i].removeAttribute('disabled');
+
+    /* on input - change background color according to number */ 
+    inputCircles[i].addEventListener('input', function(event){
+      this.style.backgroundColor = colorsForNumbers[event.target.value - 1];
+      if (event.target.value == ''){
+        this.style.backgroundColor = '#FFF';
+      }
+    });
+  }
+
+  /* initial buttons */ 
+  const buttons = document.querySelectorAll('#js-control button');
+  for(let i=0; i<buttons.length; i++){
+    buttons[i].removeAttribute('disabled');
+  }
+
+  /* initial results */ 
+  const resultCircles = document.querySelectorAll('#js-results .circle-small');
+  for(let i=0; i<resultCircles.length; i++){
+    resultCircles[i].style.backgroundColor = "#FFF";
+  }
+
+} // end of initial setup function 
+
+
+// OTHER FUNCTIONS 
 
 // Submit solution (on button click)
 function submitSolution(button){
@@ -94,7 +120,6 @@ function toggleInst(button){
     button.textContent = "How to play";
   }
 }
-
 
 // return random integer between 1 and 9 
 function randomIntToNine() {
