@@ -78,9 +78,23 @@ function showSigns(signs){
     smallCircles[i].style.backgroundColor = "#AAA";
   }
   if (signs.accurate === 4){
-    alert("Congrats!");
+    setTimeout(function(){
+      alert("Congrats! The code is " + solution.join("") + "."); 
+    }, 500);
   }
 }
+
+/* show/hide game instructions*/ 
+function toggleInst(button){
+  const instructions = document.querySelector("#js-instructions");
+  instructions.classList.toggle("instructions-display");
+  if (button.textContent === "How to play"){
+    button.textContent = "Close instructions";
+  } else {
+    button.textContent = "How to play";
+  }
+}
+
 
 // return random integer between 1 and 9 
 function randomIntToNine() {

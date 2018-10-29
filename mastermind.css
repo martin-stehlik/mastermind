@@ -2,21 +2,49 @@
   box-sizing: border-box;
 }
 
+
 body {
+  margin: 0;
+  padding: 0;
   line-height: 1.5;
+  background-color: #001f3f;
+  background-image: url("img/3px-tile.png"); // https://www.transparenttextures.com/patterns/3px-tile.png
+}
+
+.container {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color: #fff;
+}
+
+nav {
+  margin-bottom: 2rem;
+}
+
+/* clearfix*/ 
+main:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+.instructions-closed {
+  display: none;
+}
+
+.instructions-display {
+  display: block;
 }
 
 h1 {
   text-align: center;
+  padding-top: 1rem;
 }
 
 section {
-  padding: 15px;
-}
-
-header {
-  max-width: 800px;
-  margin: 0 auto;
+  padding: 20px;
 }
 
 
@@ -33,14 +61,14 @@ header {
 }
 
 .control {
-  width: 50%;
+  width: 66.33%;
   float: left;
   text-align: right;
   border-right: 1px solid black;
 }
 
 .results {
-  width: 50%;
+  width: 33.33%;
   float: left;
 }
 
@@ -62,6 +90,15 @@ header {
 
 .row {
   height: 70px;
+}
+
+nav button {
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+  width: 100%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 button {

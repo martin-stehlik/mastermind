@@ -8,166 +8,176 @@
 </head>
 
 <body>
-  <header>
-    <h1>MasterMind</h1>
-    <p>Break the code consisting of <strong>four digits excluding zero</strong> (1-9). In each row, you can guess the solution and then click on the Check button to compare your guess with the code. If your attempt contains correct number but in a wrong position, you will see a <strong>grey point</strong>. If you get both number and its position right, you will see a <strong>green point</strong>. Points <strong>do not indicate positions of numbers</strong>. Good luck!</p>
-  </header>
-  <section class="control" id="js-control">
-    <form class="row">
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <button onclick="submitSolution(this)">Check</button>
-    </form>   
-    <div class="row">
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <button onclick="submitSolution(this)">Check</button>
-    </div>
-    <div class="row">
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <button  onclick="submitSolution(this)">Check</button></button>
-    </div>   
-    <div class="row">
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <button onclick="submitSolution(this)">Check</button></button> 
-    </div>
-    <div class="row">
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <button  onclick="submitSolution(this)">Check</button></button>
-    </div>   
-    <div class="row">
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <button onclick="submitSolution(this)">Check</button></button> 
-    </div>
-    <div class="row">
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <button  onclick="submitSolution(this)">Check</button></button>
-    </div>   
-    <div class="row">
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <button onclick="submitSolution(this)">Check</button></button> 
-    </div>
-    <div class="row">
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <button  onclick="submitSolution(this)">Check</button></button>
-    </div>   
-    <div class="row">
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <input type="text" name="number" maxlength="1" class="circle"/>
-      <button onclick="submitSolution(this)">Check</button></button> 
-    </div>
-  </section>
+  <div class="container">
+    <header>
+      <h1>MasterMind</h1>
+    </header>
+    <nav>
+      <button>New game</button>
+      <button onclick="toggleInst(this)">How to play</button>
+      <div id="js-instructions" class="instructions-closed">
+        <p>Break the code consisting of <strong>four digits excluding zero</strong> (1-9). In each row, you can guess the solution and then click on the Check button to compare your guess with the code. If your attempt contains correct number but in a wrong position, you will see a <strong>grey point</strong>. If you get both number and its position right, you will see a <strong>green point</strong>. Points <strong>do not indicate positions of numbers</strong>. Good luck!</p>
+      </div>
+    </nav>
+    <main>
+      <section class="control" id="js-control">
+        <div class="row">
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <button onclick="submitSolution(this)">Check</button>
+        </div>   
+        <div class="row">
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <button onclick="submitSolution(this)">Check</button>
+        </div>
+        <div class="row">
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <button  onclick="submitSolution(this)">Check</button></button>
+        </div>   
+        <div class="row">
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <button onclick="submitSolution(this)">Check</button></button> 
+        </div>
+        <div class="row">
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <button  onclick="submitSolution(this)">Check</button></button>
+        </div>   
+        <div class="row">
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <button onclick="submitSolution(this)">Check</button></button> 
+        </div>
+        <div class="row">
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <button  onclick="submitSolution(this)">Check</button></button>
+        </div>   
+        <div class="row">
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <button onclick="submitSolution(this)">Check</button></button> 
+        </div>
+        <div class="row">
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <button  onclick="submitSolution(this)">Check</button></button>
+        </div>   
+        <div class="row">
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <input type="text" name="number" maxlength="1" class="circle"/>
+          <button onclick="submitSolution(this)">Check</button></button> 
+        </div>
+      </section>
 
-  <section class="results">
-    <div class="row">
-      <div class="square">
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="square">
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="square">
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="square">
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="square">
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="square">
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="square">
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="square">
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="square">
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="square">
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-          <div class="circle-small"></div>
-      </div>
-    </div>
-  </section>
+      <section class="results">
+        <div class="row">
+          <div class="square">
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="square">
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="square">
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="square">
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="square">
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="square">
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="square">
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="square">
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="square">
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="square">
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+              <div class="circle-small"></div>
+          </div>
+        </div>
+      </section>
+    </main>
   
+  </div>
   <script src="mastermind.js"></script>
 </body>
 
