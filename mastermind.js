@@ -1,26 +1,26 @@
 /* Colors for each number in input */ 
-const colorsForNumbers = ['#7FDBFF', '#3D9970', '#FFDC00', '#FF4136', '#B10DC9', '#0074D9', '#01FF70', '#FF851B', '#DDD'];
+var colorsForNumbers = ['#7FDBFF', '#3D9970', '#FFDC00', '#FF4136', '#B10DC9', '#0074D9', '#01FF70', '#FF851B', '#DDD'];
 
 /* solution number generation */
-let solution;
-let submittedSolution;
-let currentRow;
+var solution;
+var submittedSolution;
+var currentRow;
 
 initialSetup();
 
 function initialSetup(){
   solution = [];
-  for(let i=0; i<4; i++){
+  for(var i=0; i<4; i++){
     solution.push(randomIntToNine());
   }
 
   currentRow = 0;
 
   
-  const inputCircles = document.querySelectorAll('#js-control input');
+  var inputCircles = document.querySelectorAll('#js-control input');
 
   /* initial number input */ 
-  for(let i=0; i<inputCircles.length; i++){
+  for(var i=0; i<inputCircles.length; i++){
     inputCircles[i].value = null;
     inputCircles[i].style.backgroundColor = "#FFF";
     inputCircles[i].removeAttribute('disabled');
@@ -31,20 +31,24 @@ function initialSetup(){
       if (event.target.value == ''){
         this.style.backgroundColor = '#FFF';
       }
+      var nextElement = this.nextElementSibling;
+      nextElement.focus();
     });
   }
 
   /* initial buttons */ 
-  const buttons = document.querySelectorAll('#js-control button');
-  for(let i=0; i<buttons.length; i++){
+  var buttons = document.querySelectorAll('#js-control button');
+  for(var i=0; i<buttons.length; i++){
     buttons[i].removeAttribute('disabled');
   }
 
   /* initial results */ 
-  const resultCircles = document.querySelectorAll('#js-results .circle-small');
-  for(let i=0; i<resultCircles.length; i++){
+  var resultCircles = document.querySelectorAll('#js-results .circle-small');
+  for(var i=0; i<resultCircles.length; i++){
     resultCircles[i].style.backgroundColor = "#FFF";
   }
+
+  autofocusInput();
 
 } // end of initial setup function 
 
@@ -54,34 +58,35 @@ function initialSetup(){
 // Submit solution (on button click)
 function submitSolution(button){
   button.disabled = true; // disable used button 
-  let circles = button.parentNode.querySelectorAll("#js-control input");
+  var circles = button.parentNode.querySelectorAll("#js-control input");
   currentRow = Array.prototype.indexOf.call(button.parentNode.parentNode.children, button.parentNode); // find current row index based on button position
   submittedSolution = [];
-  for (let i=0; i<solution.length; i++){
+  for (var i=0; i<solution.length; i++){
     submittedSolution.push(circles[i].value); 
     circles[i].disabled = "true"; // disable used input circles
   }
   computePoints();
+  autofocusInput();
 };
 
 // compare given numbers with solution 
 function computePoints (){
-  let compResult = solution.slice();
-  for (let i=0; i<solution.length; i++) {
+  var compResult = solution.slice();
+  for (var i=0; i<solution.length; i++) {
     if (compResult[i] == submittedSolution[i]) {  // == operator is necessary 
       compResult[i] = "accurate";
       submittedSolution[i] = "accurate";
     }
   }
-  for (let i=0; i<solution.length; i++){
-    for (let y=0; y<solution.length; y++){
+  for (var i=0; i<solution.length; i++){
+    for (var y=0; y<solution.length; y++){
       if(compResult[i] == submittedSolution[y] && compResult[i] !== "accurate"){
         compResult[i] = "inaccurate";
         submittedSolution[y] = "inaccurate";
       }
     }
   }
-  let signs = {};
+  var signs = {};
   signs.accurate = 0;
   signs.inaccurate = 0;
   submittedSolution.forEach(el => {
@@ -94,13 +99,13 @@ function computePoints (){
   showSigns(signs);
 }
 
-// show colored signs according to the rate of success, plus alert in case of completion 
+// show colored signs according to the rate of success, plus alert in case of compvarion 
 function showSigns(signs){
-  let smallCircles = document.querySelector(".results").querySelectorAll(".row")[currentRow].querySelectorAll(".circle-small");
-  for(let i=0; i<signs.accurate; i++){
+  var smallCircles = document.querySelector(".results").querySelectorAll(".row")[currentRow].querySelectorAll(".circle-small");
+  for(var i=0; i<signs.accurate; i++){
     smallCircles[i].style.backgroundColor = "#2ECC40";
   }
-  for(let i = 0 + signs.accurate; i < (signs.inaccurate + signs.accurate); i++){
+  for(var i = 0 + signs.accurate; i < (signs.inaccurate + signs.accurate); i++){
     smallCircles[i].style.backgroundColor = "#AAA";
   }
   if (signs.accurate === 4){
@@ -112,7 +117,7 @@ function showSigns(signs){
 
 /* show/hide game instructions*/ 
 function toggleInst(button){
-  const instructions = document.querySelector("#js-instructions");
+  var instructions = document.querySelector("#js-instructions");
   instructions.classList.toggle("instructions-display");
   if (button.textContent === "How to play"){
     button.textContent = "Close instructions";
@@ -126,6 +131,9 @@ function randomIntToNine() {
   return Math.floor(Math.random() * 9) + 1;
 }
 
-
+function autofocusInput() {
+  var focusableInput = document.querySelector("#js-control input:not([disabled])");
+  focusableInput.focus();
+}
 
 
