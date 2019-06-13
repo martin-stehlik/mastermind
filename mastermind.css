@@ -35,11 +35,9 @@ nav {
   margin-bottom: 2rem;
 }
 
-/* clearfix*/ 
-main:after {
-  content: " ";
-  display: block;
-  clear: both;
+main {
+    display: flex;
+    justify-content: space-around;
 }
 
 .instructions-closed {
@@ -68,40 +66,40 @@ section {
   border: 1px solid black;
   border-radius: 50%;
   text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 3px;
 }
 
 .control {
-  width: 66.33%;
-  float: left;
+  flex-basis: 300px;
   text-align: right;
   border-right: 1px solid black;
+  text-align: center;
 }
 
 .results {
-  width: 33.33%;
-  float: left;
-}
-
-.square {
-  display: inline-block;
-  height: 100%;
-  width: 50px;
-
-}
-
-.circle-small {
-  width: 15px;
-  height: 15px;
-  border: 1px solid black;
-  border-radius: 50%;
-  float: left;
-  margin: 5px;
+    text-align: center;
 }
 
 .row {
-  height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+}
+
+.square {
+  display: flex;
+  flex-wrap: wrap;
+  height: 50px;
+  width: 50px;
+}
+
+.circle-small {
+  width: 16px;
+  height: 16px;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin: 4px;
 }
 
 nav button {
@@ -114,5 +112,9 @@ nav button {
 }
 
 button {
-  dispay: inline-block;
+  display: inline-block;
+}
+
+.button-submit {
+    margin-left: 5px;
 }
