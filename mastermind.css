@@ -35,11 +35,8 @@ nav {
   margin-bottom: 2rem;
 }
 
-/* clearfix*/ 
-main:after {
-  content: " ";
-  display: block;
-  clear: both;
+main {
+    display: flex;
 }
 
 .instructions-closed {
@@ -73,15 +70,14 @@ section {
 }
 
 .control {
-  width: 66.33%;
-  float: left;
+  flex-basis: 300px;
   text-align: right;
   border-right: 1px solid black;
+  text-align: center;
 }
 
 .results {
-  width: 33.33%;
-  float: left;
+    text-align: center;
 }
 
 .square {
@@ -101,6 +97,7 @@ section {
 }
 
 .row {
+  display: block;
   height: 70px;
 }
 
@@ -114,5 +111,6 @@ nav button {
 }
 
 button {
-  dispay: inline-block;
+  display: inline-block;
 }
+

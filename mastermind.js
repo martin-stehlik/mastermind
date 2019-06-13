@@ -30,12 +30,18 @@ function initialSetup() {
             if (event.target.value == 0) {
                 this.value = "";
                 return false;
-            } else if (event.target.value == "") {
-                this.style.backgroundColor = '#FFF';
+            } else if (event.target.value.length > 1) {
+                this.value = this.value.charAt(1);
             }
             this.style.backgroundColor = colorsForNumbers[event.target.value - 1];
             var nextElement = this.nextElementSibling;
             nextElement.focus();
+        });
+
+        inputCircles[i].addEventListener('change', function (event) {
+            if (event.target.value == "") {
+                this.style.backgroundColor = '#FFF';
+            }
         });
     }
 
