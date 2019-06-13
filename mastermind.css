@@ -37,7 +37,10 @@ nav {
 
 main {
     display: flex;
+<<<<<<< HEAD
     justify-content: space-around;
+=======
+>>>>>>> ad91a50cdc701e90fcfe501447bbe36bbd33d6d4
 }
 
 .instructions-closed {
