@@ -49,6 +49,9 @@ function initialSetup() {
     var buttons = document.querySelectorAll('#js-control button');
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].removeAttribute('disabled');
+        buttons[i].addEventListener('click', function() {
+            submitSolution(this);
+        });
     }
 
     /* initial results */
@@ -64,7 +67,7 @@ function initialSetup() {
 
 // OTHER FUNCTIONS 
 
-// Submit solution (on button click)
+// Submit solution 
 function submitSolution(button) {
     button.disabled = true; // disable used button 
     var circles = button.parentNode.querySelectorAll("#js-control input");

@@ -23,12 +23,25 @@ input[type=number] {
           appearance: textfield;
 }
 
+h1 {
+  text-align: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
 .container {
   max-width: 450px;
-  margin: 3rem auto;
   padding-right: 20px;
   padding-left: 20px;
   background-color: #fff;
+  padding-bottom: 40px;
+}
+
+@media (min-width: 450px) {
+  .container {
+    margin: 3rem auto;
+    border-radius: 5px;
+  }
 }
 
 nav {
@@ -38,6 +51,7 @@ nav {
 main {
     display: flex;
     justify-content: space-around;
+    
 }
 
 .instructions-closed {
@@ -46,17 +60,12 @@ main {
 
 .instructions-display {
   display: block;
-}
-
-h1 {
-  text-align: center;
-  padding-top: 1rem;
+  padding-top: 0.5rem;
 }
 
 section {
-  padding: 20px;
+  padding: 0px 20px;
 }
-
 
 .circle {
   padding: 0;
@@ -118,3 +127,4 @@ button {
 .button-submit {
     margin-left: 5px;
 }
+
