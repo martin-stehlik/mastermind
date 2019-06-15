@@ -147,5 +147,3 @@ function autofocusInput() {
     var focusableInput = document.querySelector("#js-control input:not([disabled])");
     focusableInput.focus();
 }
-
-

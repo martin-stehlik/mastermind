@@ -50,7 +50,7 @@ nav {
 
 main {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     
 }
 
@@ -79,14 +79,15 @@ section {
 }
 
 .control {
-  flex-basis: 300px;
+  flex-basis: 290px;
   text-align: right;
-  border-right: 1px solid black;
+  border-right: 1px solid #BBB;
   text-align: center;
 }
 
 .results {
-    text-align: center;
+  flex-basis: 65px;
+  text-align: center;
 }
 
 .row {
