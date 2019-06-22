@@ -123,7 +123,7 @@ function showSigns(signs) {
     if (signs.accurate === 4) {
         setTimeout(function () {
             alert("Congrats! The code is " + solution.join("") + ".");
-        }, 500);
+        }, 1000);
     }
 }
 

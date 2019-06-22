@@ -100,7 +100,6 @@ section {
 .square {
   display: flex;
   flex-wrap: wrap;
-  height: 50px;
   width: 50px;
 }
 
@@ -126,6 +125,6 @@ button {
 }
 
 .button-submit {
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
