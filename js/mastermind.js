@@ -1,5 +1,5 @@
 /* Colors for each number in input */
-var colorsForNumbers = ['#7FDBFF', '#3D9970', '#FFDC00', '#FF4136', '#B10DC9', '#0074D9', '#01FF70', '#FF851B', '#DDD'];
+var colorsForNumbers = ['#7FDBFF', '#3D9970', '#FFDC00', '#FF4136', '#D073DE', '#0074D9', '#01FF70', '#FF851B', '#DDD'];
 
 /* solution number generation */
 var solution;
@@ -15,8 +15,6 @@ function initialSetup() {
     }
 
     currentRow = 0;
-
-
     var inputCircles = document.querySelectorAll('#js-control input');
 
     /* initial number input */
@@ -62,14 +60,14 @@ function initialSetup() {
 
     autofocusInput();
 
-} // end of initial setup function 
+} // end of initial setup function
 
 
-// OTHER FUNCTIONS 
+// OTHER FUNCTIONS
 
-// Submit solution 
+// Submit solution
 function submitSolution(button) {
-    button.disabled = true; // disable used button 
+    button.disabled = true; // disable used button
     var circles = button.parentNode.querySelectorAll("#js-control input");
     currentRow = Array.prototype.indexOf.call(button.parentNode.parentNode.children, button.parentNode); // find current row index based on button position
     submittedSolution = [];
@@ -81,11 +79,11 @@ function submitSolution(button) {
     autofocusInput();
 };
 
-// compare given numbers with solution 
+// compare given numbers with solution
 function computePoints() {
     var compResult = solution.slice();
     for (var i = 0; i < solution.length; i++) {
-        if (compResult[i] == submittedSolution[i]) {  // == operator is necessary 
+        if (compResult[i] == submittedSolution[i]) {  // == operator is necessary
             compResult[i] = "accurate";
             submittedSolution[i] = "accurate";
         }
@@ -111,7 +109,7 @@ function computePoints() {
     showSigns(signs);
 }
 
-// show colored signs according to the rate of success, plus alert in case of compvarion 
+// show colored signs according to the rate of success, plus alert in case of compvarion
 function showSigns(signs) {
     var smallCircles = document.querySelector(".results").querySelectorAll(".row")[currentRow].querySelectorAll(".circle-small");
     for (var i = 0; i < signs.accurate; i++) {
@@ -138,7 +136,7 @@ function toggleInst(button) {
     }
 }
 
-// return random integer between 1 and 9 
+// return random integer between 1 and 9
 function randomIntToNine() {
     return Math.floor(Math.random() * 9) + 1;
 }

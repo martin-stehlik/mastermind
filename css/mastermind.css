@@ -1,13 +1,22 @@
-* {
-  box-sizing: border-box;
-}
+
+@import "bootstrap4-reboot.css";
 
 body {
   margin: 0;
   padding: 0;
   line-height: 1.5;
   background-color: #001f3f;
-  background-image: url("img/gplay.png"); /* https://www.transparenttextures.com/patterns/gplay.png */ 
+  background-image: url("../img/gplay.png"); /* https://www.transparenttextures.com/patterns/gplay.png */
+}
+
+*:focus-visible,
+button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 2px 2px #1661ac;
+}
+
+button:not {
+  cursor: pointer;
 }
 
 /* hide number inputs spin buttons */
@@ -51,7 +60,7 @@ nav {
 main {
     display: flex;
     justify-content: center;
-    
+
 }
 
 .instructions-closed {
