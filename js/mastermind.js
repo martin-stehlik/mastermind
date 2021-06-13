@@ -1,12 +1,38 @@
-/* Colors for each number in input */
 var colorsForNumbers = ['#7FDBFF', '#3D9970', '#FFDC00', '#FF4136', '#D073DE', '#0074D9', '#01FF70', '#FF851B', '#DDD'];
 
-/* solution number generation */
 var solution;
 var submittedSolution;
 var currentRow;
 
 initialSetup();
+
+var inputCircles = document.querySelectorAll('#js-control input');
+for (var i = 0; i < inputCircles.length; i++) {
+    inputCircles[i].addEventListener('input', function (event) {
+        if (event.target.value == 0) {
+            this.value = "";
+            return false;
+        } else if (event.target.value.length > 1) {
+            this.value = this.value.charAt(1);
+        }
+        this.style.backgroundColor = colorsForNumbers[event.target.value - 1];
+        var nextElement = this.nextElementSibling;
+        nextElement.focus();
+    });
+
+    inputCircles[i].addEventListener('change', function (event) {
+        if (event.target.value == "") {
+            this.style.backgroundColor = '#FFF';
+        }
+    });
+}
+
+var buttons = document.querySelectorAll('#js-control button');
+for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function() {
+        submitSolution(this);
+    });
+}
 
 function initialSetup() {
     solution = [];
@@ -22,34 +48,12 @@ function initialSetup() {
         inputCircles[i].value = null;
         inputCircles[i].style.backgroundColor = "#FFF";
         inputCircles[i].removeAttribute('disabled');
-
-        /* on input - change background color according to number */
-        inputCircles[i].addEventListener('input', function (event) {
-            if (event.target.value == 0) {
-                this.value = "";
-                return false;
-            } else if (event.target.value.length > 1) {
-                this.value = this.value.charAt(1);
-            }
-            this.style.backgroundColor = colorsForNumbers[event.target.value - 1];
-            var nextElement = this.nextElementSibling;
-            nextElement.focus();
-        });
-
-        inputCircles[i].addEventListener('change', function (event) {
-            if (event.target.value == "") {
-                this.style.backgroundColor = '#FFF';
-            }
-        });
     }
 
     /* initial buttons */
     var buttons = document.querySelectorAll('#js-control button');
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].removeAttribute('disabled');
-        buttons[i].addEventListener('click', function() {
-            submitSolution(this);
-        });
     }
 
     /* initial results */
@@ -60,12 +64,8 @@ function initialSetup() {
 
     autofocusInput();
 
-} // end of initial setup function
+}
 
-
-// OTHER FUNCTIONS
-
-// Submit solution
 function submitSolution(button) {
     button.disabled = true; // disable used button
     var circles = button.parentNode.querySelectorAll("#js-control input");
@@ -79,7 +79,6 @@ function submitSolution(button) {
     autofocusInput();
 };
 
-// compare given numbers with solution
 function computePoints() {
     var compResult = solution.slice();
     for (var i = 0; i < solution.length; i++) {
@@ -109,7 +108,6 @@ function computePoints() {
     showSigns(signs);
 }
 
-// show colored signs according to the rate of success, plus alert in case of compvarion
 function showSigns(signs) {
     var smallCircles = document.querySelector(".results").querySelectorAll(".row")[currentRow].querySelectorAll(".circle-small");
     for (var i = 0; i < signs.accurate; i++) {
@@ -125,7 +123,6 @@ function showSigns(signs) {
     }
 }
 
-/* show/hide game instructions*/
 function toggleInst(button) {
     var instructions = document.querySelector("#js-instructions");
     instructions.classList.toggle("instructions-display");
@@ -136,7 +133,6 @@ function toggleInst(button) {
     }
 }
 
-// return random integer between 1 and 9
 function randomIntToNine() {
     return Math.floor(Math.random() * 9) + 1;
 }
