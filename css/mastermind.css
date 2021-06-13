@@ -32,6 +32,10 @@ input[type=number] {
           appearance: textfield;
 }
 
+input[type=number]:disabled {
+  color: inherit;
+}
+
 h1 {
   text-align: center;
   padding-top: 1.5rem;
