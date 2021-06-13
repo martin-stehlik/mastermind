@@ -72,8 +72,14 @@ main {
   padding-top: 0.5rem;
 }
 
-section {
+.control, .results {
   padding: 0px 20px;
+}
+
+@media(max-width: 340px) {
+  .control, .results {
+    padding: 0px 15px;
+  }
 }
 
 .circle {
