@@ -9,7 +9,7 @@ body {
   background-image: url("../img/gplay.png"); /* https://www.transparenttextures.com/patterns/gplay.png */
 }
 
-*:focus-visible,
+input:focus,
 button:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px #2676c7;
