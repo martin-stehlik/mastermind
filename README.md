@@ -1,4 +1,4 @@
 # mastermind
 An attempt at logic board game
 
-Play at [martin-stehlik.github.io/mastermind/]
+You can play [here](martin-stehlik.github.io/mastermind/)
